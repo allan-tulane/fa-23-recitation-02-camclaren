@@ -41,11 +41,75 @@ where $W(1) = 1$.
 - [ ] 4. (2 point) Now, derive the asymptotic behavior of $W(n)$ using $f(n) = 1$, $f(n) = \log n$ and $f(n) = n$. Then, generate actual values for $W(n)$ for your code and confirm that the trends match your derivations.
 
 **TODO: your answer goes here**
+f(n) = 1
 
-- [ ] 5. (4 points) Now that you have a nice way to empirically generate valuess of $W(n)$, we can look at the relationship between $a$, $b$, and $f(n)$. Suppose that $f(n) = n^c$. What is the asypmptotic behavior of $W(n)$ if $c < \log_b a$? What about $c > \log_b a$? And if they are equal? Modify `test_compare_work` to compare empirical values for different work functions (at several different values of $n$) to justify your answer. 
+root: 1
+level 1: 2 * 1
+O(n)
+
+
+f(n) = log(n)
+
+root: log(n)
+level 1: log(n/2)
+O(logn(n))
+
+
+f(n) = n
+
+root: n
+level 1: (n/2) + (n/2)
+O(nlog(n))
+
+
+- [ ] 5. (4 points) Now that you have a nice way to empirically generate valuess of $W(n)$, we can look at the relationship between $a$, $b$, and $f(n)$. Suppose that $f(n) = n^c$. What is the asymptotic behavior of $W(n)$ if $c < \log_b a$? What about $c > \log_b a$? And if they are equal? Modify `test_compare_work` to compare empirical values for different work functions (at several different values of $n$) to justify your answer. 
 
 **TODO: your answer goes here**
+if a = 2 and b = 2:
+
+c < logb(a) --> logb(a) = 1
+
+W(n) = 2W(n/2) + n^log2(1) simplifies to W(n) = 2W(n/2) + 1 since n^0 = 1.
+
+Hence:
+root = 1
+level = 2 * 1
+
+W(n) = O(n)
+
+c = logb(a)
+
+W(n) = 2W(n/2) + n^log2(2) simplifies to W(n) = 2W(n/2) + n since n^1 = n.
+
+Therefore:
+root = n
+level 1 = (n/2) + (n/2) + n
+
+W(n) = O(nlogn)
+
+c > logb(a):
+
+W(n) = 2W(n/2) + n^log2(4) simplifies W(n) = 2W(n/2) + n^2 since log2(4) = 2.
+
+Thus:
+root = n^2
+level 1 = (n/2)^2 + (n/2)^2 = n^2/2
+
+W(n) = O(n^2)
+
+Our tabulate didn't work in the IDE and Replit was throwing indentation errors that the IDE did not have.
 
 - [ ] 6. (3 points) $W(n)$ is meant to represent the running time of some recursive algorithm. Suppose we always had $a$ processors available to us and we wanted to compute the span of the same algorithm. Implement the function `span_calc` to compute the empirical span, where the work of the algorithm is given by $W(n)$. Implement `test_compare_span` to create a new comparison function for comparing span functions. Derive the asymptotic expressions for the span of the recurrences you used in problem 4 above. Confirm that everything matches up as it should. 
 
 **TODO: your answer goes here**
+f(n) = 1:
+
+S(n) = O(logn) since we know the tree is balanced, so we know that the height is log(n), which would give us the span
+
+f(n) = log(n)
+
+S(n) = O(logn)
+
+f(n) = n
+
+S(n) = O(n^2) since the root 
