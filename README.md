@@ -97,7 +97,7 @@ level 1 = (n/2)^2 + (n/2)^2 = n^2/2
 
 W(n) = O(n^2)
 
-Our tabulate didn't work in the IDE and Replit was throwing indentation errors that the IDE did not have.
+Our tabulate didn't work in the IDE and Replit was throwing indentation errors that the IDE did not have, so we were unable to produce a table with the values.
 
 - [ ] 6. (3 points) $W(n)$ is meant to represent the running time of some recursive algorithm. Suppose we always had $a$ processors available to us and we wanted to compute the span of the same algorithm. Implement the function `span_calc` to compute the empirical span, where the work of the algorithm is given by $W(n)$. Implement `test_compare_span` to create a new comparison function for comparing span functions. Derive the asymptotic expressions for the span of the recurrences you used in problem 4 above. Confirm that everything matches up as it should. 
 
@@ -108,8 +108,8 @@ S(n) = O(logn) since we know the tree is balanced, so we know that the height is
 
 f(n) = log(n)
 
-S(n) = O(logn)
+S(n) = O(nlogn) since the work is the same as the span
 
 f(n) = n
 
-S(n) = O(n^2) since the root 
+S(n) = O(n) since the root is larger than the leaves
